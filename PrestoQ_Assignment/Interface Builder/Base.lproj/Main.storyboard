@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FFN-7U-zLX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manager Special Table View Controller-->
+        <scene sceneID="fIL-T8-JW9">
+            <objects>
+                <tableViewController id="q5C-7z-sdA" customClass="ManagerSpecialTableViewController" customModule="PrestoQ_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8gc-4A-97z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="106" id="fJZ-bK-sc7" customClass="ProductTableViewCell" customModule="PrestoQ_Assignment" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="106"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJZ-bK-sc7" id="tfg-Mi-vzu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="G3u-FX-h2h">
+                                            <rect key="frame" x="10" y="10" width="394" height="86"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="G3u-FX-h2h" secondAttribute="bottom" constant="10" id="8WV-xI-9cv"/>
+                                        <constraint firstItem="G3u-FX-h2h" firstAttribute="leading" secondItem="tfg-Mi-vzu" secondAttribute="leading" constant="10" id="RyS-2v-n3e"/>
+                                        <constraint firstAttribute="trailing" secondItem="G3u-FX-h2h" secondAttribute="trailing" constant="10" id="rQT-u8-M9h"/>
+                                        <constraint firstItem="G3u-FX-h2h" firstAttribute="top" secondItem="tfg-Mi-vzu" secondAttribute="top" constant="10" id="xEy-jx-2MM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="productsStack" destination="G3u-FX-h2h" id="Skz-PO-M8U"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q5C-7z-sdA" id="AO7-f4-Eab"/>
+                            <outlet property="delegate" destination="q5C-7z-sdA" id="dJC-BH-Del"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="AZl-a5-eYt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qg5-Te-3Fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="186.83035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0fd-f4-PLp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FFN-7U-zLX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="scg-F3-BHU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q5C-7z-sdA" kind="relationship" relationship="rootViewController" id="sc5-UW-9CW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgi-DC-Ypr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="186.83035714285714"/>
+        </scene>
+    </scenes>
+</document>

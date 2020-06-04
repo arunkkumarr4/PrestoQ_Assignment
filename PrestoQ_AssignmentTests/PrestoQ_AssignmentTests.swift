@@ -10,25 +10,42 @@ import XCTest
 @testable import PrestoQ_Assignment
 
 class PrestoQ_AssignmentTests: XCTestCase {
+    private var viewModel: ManagerSpecialsViewModel!
+    private enum SetupErrors: Error {
+        case urlNotFound, dataCastingFailure, decodeFailure
+    }
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let decoder = JSONDecoder()
+        let testBundle = Bundle(for: type(of: self))
+        guard let url = testBundle.url(forResource: "response", withExtension: "json") else { throw SetupErrors.urlNotFound }
+        guard let data = try? Data(contentsOf: url) else { throw SetupErrors.dataCastingFailure }
+        guard let products = try? decoder.decode(Products.self, from: data) else { throw SetupErrors.decodeFailure }
+        viewModel = ManagerSpecialsViewModel(with: products)
+    }
+    
+    func testViewModel() {
+        XCTAssert(viewModel != nil)
+    }
+    
+    func testRowViewModelCount() {
+        XCTAssert(viewModel.rowViewModel.count > 0)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testManagerSpecialCount() {
+        for row in viewModel.rowViewModel {
+            XCTAssert(row.managerSpecials.count > 0)
         }
     }
-
+    
+    func testManagerSpecialData() {
+        for row in viewModel.rowViewModel {
+            for special in row.managerSpecials {
+                XCTAssert(!special.imageUrl.isEmpty)
+                XCTAssert(!special.displayName.isEmpty)
+                XCTAssert(!special.originalPrice.isEmpty)
+                XCTAssert(!special.price.isEmpty)
+            }
+        }
+    }
 }
