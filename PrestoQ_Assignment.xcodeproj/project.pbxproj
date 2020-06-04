@@ -137,7 +137,7 @@
 				6ED386FF2486D5C500830A64 /* LaunchScreen.storyboard */,
 				6ED387252486D5E200830A64 /* Models */,
 				6ED387242486D5D800830A64 /* Network */,
-				6EE1565E24870A9100AD2373 /* Scene */,
+				6EE1565E24870A9100AD2373 /* Scenes */,
 				6ED386F62486D5C300830A64 /* SceneDelegate.swift */,
 			);
 			path = PrestoQ_Assignment;
@@ -204,13 +204,13 @@
 			path = "Interface Builder";
 			sourceTree = "<group>";
 		};
-		6EE1565E24870A9100AD2373 /* Scene */ = {
+		6EE1565E24870A9100AD2373 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				6EE1566224870AFE00AD2373 /* Controllers */,
 				6EE1565F24870AB300AD2373 /* Reusable views */,
 			);
-			path = Scene;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		6EE1565F24870AB300AD2373 /* Reusable views */ = {
